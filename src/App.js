@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import "./App.css";
+import "./style.css";
+import imageSrc from "./imageInSrc.jpg";
 
 function App() {
+  let imageInPublic = <img src="/imageInPublic.jpg" alt="Public" />;
+  let imageInSrc = <img src={imageSrc} alt="Src" />;
+  let video = (
+    <video width="320" height="240" controls>
+      <source src="myVideo.mp4" type="video/mp4" />
+    </video>
+  );
+  let title = <h1 className={"title red"}>Nour Tebourski</h1>;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{ border: "solid 1px black", maxWidth: "100vw" }}>
+        {title}
+        {[imageInPublic, imageInSrc].map((img) => (
+          <div>{img}</div>
+        ))}
+      </div>
+      {video}
     </div>
   );
 }
